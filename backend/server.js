@@ -11,7 +11,12 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "https://item-catalog-zi9p.onrender.com"
+  ],
+}));
 
 app.get("/", (req, res) => {
   res.json({ message: "API running..." });

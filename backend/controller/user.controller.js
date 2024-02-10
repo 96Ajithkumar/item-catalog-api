@@ -13,7 +13,7 @@ const signUpUser = async (req, res) => {
     res.status(201).send('Sucessfully account opened ')
     return
   } catch (err) {
-    console.log('Eorror : ', err)
+    console.log('Error : ', err)
     sendResponseError(500, 'Something wrong please try again', res)
     return
   }

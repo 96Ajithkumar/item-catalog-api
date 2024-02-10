@@ -13,12 +13,13 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: [
-    "https://item-catalog-zi9p.onrender.com"
+  allowedOrigins: [
+    "https://item-catalog-zi9p.onrender.com",
+    "https://item-catalog-api.onrender.com",
   ],
 }));
 
-app.get("/", (req, res) => {
+app.get("/", cors(), (req, res) => {
   res.json({ message: "API running..." });
 });
 

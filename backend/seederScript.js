@@ -4,6 +4,7 @@ const productData = require('./data/products')
 const {connectDB} = require('./config/db')
 const Product = require('./models/Product')
 
+// var fs = require("fs")
 connectDB()
 
 const importData = async () => {
@@ -21,4 +22,21 @@ const importData = async () => {
   }
 }
 
+
+// const formatData = () => {
+//   const test = [];
+//   productList.forEach(element => {
+//     test.push({
+//       name: element.title,
+//       imageUrl: element.image,
+//       description: element.description,
+//       price: element.price,
+//       countInStock: element.rating.count,
+//     })
+//   });
+
+//   fs.writeFileSync("input.txt", JSON.stringify(test));
+// };
+
 importData()
+// formatData()

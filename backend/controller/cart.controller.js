@@ -18,9 +18,11 @@ const addProductInCart = async (req, res) => {
       {productId},
       {productId, count, userId: req.user._id},
       {upsert: true},
-    )
+    );
 
-    res.status(201).send({status: 'ok', cart})
+    const model = await Cart.findOne({productId}, {productId, count, userId: req.user._id}); 
+
+    res.status(201).send({status: 'ok', cart: cart ?? model})
   } catch (err) {
     console.log(err)
     sendResponseError(500, `Error ${err}`, res)
